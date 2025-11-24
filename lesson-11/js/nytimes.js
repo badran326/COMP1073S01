@@ -27,7 +27,7 @@ function fetchResults(event) {
 
        if(start)
         {
-            url +=`&begin_date=${start.replace(/-/g,'')}`;
+            url +=`&begin_date=${start.replace(/-/g,'')}`;//2025-11-24 ->20251124
         }
 //strat=2023-01-01=>20230101
     if(end){
@@ -36,7 +36,7 @@ function fetchResults(event) {
 
     // STEP 4: Use fetch() to pass the URL that we built as a request to the API service, then pass the JSON to the displayResults() function
     fetch(url)
-    .then(result =>{return result.json()})
+    .then(response =>{return response.json()})
     .then(json=>{displayResults(json)})
     .catch(error=>{
         console.log('Error:',error);
@@ -71,7 +71,7 @@ function displayResults(json) {
             const current = articles[i];
             console.log(current);
             // STEP 7a: Look at the console output from the API…
-            link.href = articles[i].web-url;
+            link.href = articles[i].web_url;
             link.textContent = articles[i].headline.main;
             // STEP 7b: Grab the content from the JSON for the hyperlink and the article teaser (snippet)
             para1.textContent = articles[i].snippet;
