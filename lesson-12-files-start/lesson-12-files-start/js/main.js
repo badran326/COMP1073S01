@@ -9,6 +9,11 @@ let height = canvas.height = window.innerHeight;
 function random(min,max) {
 	let num = Math.floor(Math.random()*(max-min)) + min;
 	return num;
+	/*
+min=10, max =20 
+max - min =10--> 0 to 9.9999-->0-9 -->10-19
+
+	*/
 	
 }
 
@@ -19,7 +24,7 @@ function random(min,max) {
 			this.velX = velX;
 			this.velY = velY;
 			this.color = color;
-			this.size = size;
+			this.size = size;//radius of the ball
 		}
 	// STEP 2: Add the draw() method to the Ball class built above
           Ball.prototype.draw = function(){
